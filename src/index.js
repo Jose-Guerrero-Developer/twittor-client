@@ -2,7 +2,8 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/app/App";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./assets/scss/main.scss"
+import "./assets/scss/main.scss";
+import "react-toastify/dist/ReactToastify.css";
 import * as serviceWorker from "./core/serviceWorker";
 
 ReactDOM.render(
