@@ -1,1 +1,16 @@
-@import "./colors"
+@import "./colors";
+@import url('https://fonts.googleapis.com/css2?family=Baloo+Tamma+2:wght@400;500;800&display=swap');
+
+html, body {
+  box-sizing: border-box;
+  font-family: 'Baloo Tamma 2', cursive;
+}
+
+html, body, #root {
+  color: white;
+  height: 100%;
+}
+
+.btn {
+  box-shadow: none !important;
+}

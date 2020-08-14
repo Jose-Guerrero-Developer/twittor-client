@@ -1,0 +1,53 @@
+@import '../../assets/scss/main';
+
+.sign-container {
+  height: 100%;
+  display: flex;
+  & .brand {
+    font-size: 2.4rem;
+  }
+  & .advertising {
+    height: 100%;
+    display: flex;
+    padding: 3rem;
+    width: calc(50%);
+    justify-content: space-around;
+    flex-direction: column;
+    background-size: contain;
+    background-color: $primary-light;
+    background-image: url("../../assets/img/logos/blue.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    & .top {
+      & h1 {
+        font-size: 1.78rem;
+        font-weight: bold;
+      }
+    }
+    & .bottom {
+      & h5 {
+        font-weight: normal;
+        margin-bottom: .5rem;
+        letter-spacing: .05rem;
+        & svg {
+          margin-right: 1.5rem;
+        }
+      }
+    }
+  }
+  & .actions {
+    width: calc(50%);
+    display: flex;
+    padding: 0 6rem;
+    text-align: center;
+    align-items: center;
+    background-color: $primary-dark-light;
+    & .logo {
+      width: 5rem;
+      margin-bottom: 1.2rem;
+    }
+    & h3 {
+      margin-bottom: 1.2rem;
+    }
+  }
+}
