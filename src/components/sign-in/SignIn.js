@@ -1,9 +1,20 @@
 import React from "react";
 
-const SignIn = () => {
-  return (
-    <h5>Sing In</h5>
-  )
+class SignIn extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      email: "",
+      password: ""
+    }
+  }
+  render() {
+    return (
+      <>
+        <h5>Sign In</h5>
+      </>
+    )
+  }
 }
 
 export default SignIn

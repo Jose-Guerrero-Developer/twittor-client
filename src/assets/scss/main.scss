@@ -13,4 +13,9 @@ html, body, #root {
 
 .btn {
   box-shadow: none !important;
+  & .spinner-border {
+    width: 1.3rem;
+    height: 1.3rem;
+    vertical-align: middle;
+  }
 }

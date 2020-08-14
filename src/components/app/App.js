@@ -16,15 +16,15 @@ class App extends React.Component {
       <>
         { this.state.session.status ? <h5>Application ....</h5> : <Sign /> }
         <ToastContainer
+          rtl={false}
           position="top-right"
-          autoClose={5000}
-          hideProgressBar={false}
+          draggable
+          autoClose={3000}
           newestOnTop={false}
           closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover />
+          pauseOnHover
+          hideProgressBar={false}
+          pauseOnFocusLoss />
       </>
     )
   }

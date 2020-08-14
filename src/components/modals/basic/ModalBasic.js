@@ -10,7 +10,7 @@ class ModalBasic extends React.Component {
       <Modal
         size="lg"
         show={ this.props.show }
-        onHide={() => this.props.hiddenModal() }
+        onHide={() => this.props.hidden() }
         centered
         className="basic-modal"
       >

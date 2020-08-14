@@ -17,29 +17,29 @@ class Sign extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false,
-      contentModal: null
+      show: false,
+      content: null
     }
-    this.openModal = this.openModal.bind(this);
-    this.hiddenModal = this.hiddenModal.bind(this);
+    this.open = this.open.bind(this);
+    this.hidden = this.hidden.bind(this);
   }
-  openModal(content) {
+  open(content) {
     this.setState({
-      showModal: true,
-      contentModal: content
+      show: true,
+      content: content
     });
   }
-  hiddenModal() {
+  hidden() {
     this.setState({
-      showModal: false,
-      contentModal: null
+      show: false,
+      content: null
     });
   }
   render() {
     return (
       <>
-        <ModalBasic show={ this.state.showModal } hiddenModal={ this.hiddenModal }>
-          { this.state.contentModal }
+        <ModalBasic show={ this.state.show } hidden={ this.hidden }>
+          { this.state.content }
         </ModalBasic>
         <section className="sign-container">
           <section className="advertising">
@@ -61,7 +61,7 @@ class Sign extends React.Component {
                 <Button
                   block
                   variant="primary"
-                  onClick={() => this.openModal(<SignUp />)}
+                  onClick={() => this.open(<SignUp hidden={ this.hidden } />)}
                 >
                   Regístrate
               </Button>
@@ -70,7 +70,7 @@ class Sign extends React.Component {
                 <Button
                   block
                   variant="outline-primary"
-                  onClick={() => this.openModal(<SignIn />)}
+                  onClick={() => this.open(<SignIn />)}
                 >
                   Iniciar sesión
                 </Button>
