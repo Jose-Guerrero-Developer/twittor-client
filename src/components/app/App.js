@@ -14,12 +14,21 @@ class App extends React.Component {
     }
     this.setSession = this.setSession.bind(this)
   }
+  /**
+   * En: Sets session status
+   * Es: Establecer el estado de la sesión
+   * @param {*} state 
+   */
   setSession(state) {
     this.setState({
       session: { 
         ...this.state.session, status: state }
     })
   }
+  /**
+   * En: Building the App component
+   * Es: Construir el componente App
+   */
   render() {
     return (
       <SessionContext.Provider value={ this.state.session }>

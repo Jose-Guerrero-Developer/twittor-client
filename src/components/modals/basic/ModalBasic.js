@@ -1,10 +1,13 @@
-import React from "react"
+import React from "react";
+import "./styles.scss";
 import { Modal } from "react-bootstrap";
+import LogoWhite from "../../../assets/img/logos/white.png";
 
-import "./styles.scss"
-import LogoWhite from "../../../assets/img/logos/white.png"
-
-class ModalBasic extends React.Component {
+export default class ModalBasic extends React.Component {
+  /**
+   * En: Building the ModalBasic component
+   * Es: Construir el componente ModalBasic
+   */
   render() {
     return (
       <Modal
@@ -26,5 +29,3 @@ class ModalBasic extends React.Component {
     )
   }
 }
-
-export default ModalBasic

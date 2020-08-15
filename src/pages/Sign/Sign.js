@@ -1,18 +1,20 @@
-import React from "react"
-import { Button, Form } from "react-bootstrap"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import React from "react";
+import { Button, Form } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faUsers,
   faSearch,
-  faComment } from "@fortawesome/free-solid-svg-icons"
+  faComment } from "@fortawesome/free-solid-svg-icons";
+import SignIn from "../../components/sign-in/";
+import SignUp from "../../components/sign-up/";
+import ModalBasic from "../../components/modals/basic/";
+import "./styles.scss";
+import LogoWhite from "../../assets/img/logos/white.png";
 
-import SignIn from "../../components/sign-in/"
-import SignUp from "../../components/sign-up/"
-import ModalBasic from "../../components/modals/basic/"
-
-import "./styles.scss"
-import LogoWhite from "../../assets/img/logos/white.png"
-
+/**
+ * En: Login page and create user accounts
+ * Es: Página de inicio de sesión y crear cuentas de usuarios
+ */
 class Sign extends React.Component {
   constructor(props) {
     super(props);
@@ -23,18 +25,31 @@ class Sign extends React.Component {
     this.open = this.open.bind(this);
     this.hidden = this.hidden.bind(this);
   }
+  /**
+   * En: Open modal window
+   * Es: Abrir ventana modal
+   * @param {*} content 
+   */
   open(content) {
     this.setState({
       show: true,
       content: content
     });
   }
+  /**
+   * En: Hide modal window
+   * Es: Ocultar ventana modal
+   */
   hidden() {
     this.setState({
       show: false,
       content: null
     });
   }
+  /**
+   * En: Build component Sign
+   * Es: Construir componente Sign
+   */
   render() {
     return (
       <>
