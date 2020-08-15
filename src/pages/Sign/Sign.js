@@ -70,7 +70,7 @@ class Sign extends React.Component {
                 <Button
                   block
                   variant="outline-primary"
-                  onClick={() => this.open(<SignIn />)}
+                  onClick={() => this.open(<SignIn hidden={ this.hidden } setSession={ this.props.setSession } />)}
                 >
                   Iniciar sesión
                 </Button>

@@ -1,10 +1,10 @@
 import "./styles.scss"
 import React from "react"
 import { toast } from "react-toastify";
-import { Profile } from '../../api/'
-import { values, size } from 'lodash'
-import { isEmailValid } from '../../utils/validations'
-import { Form, Row, Col, Button, Spinner } from 'react-bootstrap'
+import { Profile } from "../../api/"
+import { values, size } from "lodash"
+import { isEmailValid } from "../../utils/validations"
+import { Form, Row, Col, Button, Spinner } from "react-bootstrap"
 
 /**
  * En: Component for registering new accounts

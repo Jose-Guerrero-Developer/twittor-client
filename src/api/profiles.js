@@ -1,4 +1,4 @@
-import { Axios } from '../utils/axios/'
+import { Axios } from "../utils/axios/"
 
 export class Profile {
   static Store(profile) {

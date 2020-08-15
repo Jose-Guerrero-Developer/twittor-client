@@ -1,1 +1,2 @@
-export { Profile } from './profiles' 
+export { Profile } from "./profiles" 
+export { Auth } from "./auth" 
