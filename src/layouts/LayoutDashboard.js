@@ -18,7 +18,7 @@ export default class LayoutDashboard extends React.Component {
           <Col xs="3">
             <SideBar setSession={ this.props.setSession } />
           </Col>
-          <Col>
+          <Col className="content">
             { this.props.children }
           </Col>
         </Row>

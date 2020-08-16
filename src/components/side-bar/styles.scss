@@ -1,7 +1,16 @@
 @import "../../assets/scss/main.scss";
 
 .layout-content {
+  height: 100%;
   padding-top: 5rem;
+  & .row { height: 100%; }
+  & .content {
+    height: 100%;
+    overflow: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
 }
 
 .side-bar {
