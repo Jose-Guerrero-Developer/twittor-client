@@ -8,8 +8,9 @@ import {
   faUser,
   faHome,
   faUsers,
+  faRetweet,
   faPowerOff } from "@fortawesome/free-solid-svg-icons";
-import { ListGroup } from "react-bootstrap";
+import { ListGroup, Button } from "react-bootstrap";
 
 /**
  * En: Application side menu
@@ -37,6 +38,12 @@ export default class SideBar extends Component {
       <div className="side-bar">
         <img src={ LogoWhite } alt="Twittor" className="logo" />
         <h5 className="brand">Twittor Colombia</h5>
+        <Button
+          block
+          className="btn-new-tweet"
+        >
+          <FontAwesomeIcon icon={ faRetweet } /> Publicar Tweet
+        </Button>
         <ListGroup variant="flush">
           <ListGroup.Item>
             <Link to="/">

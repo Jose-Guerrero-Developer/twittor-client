@@ -2,7 +2,7 @@
 
 .layout-content {
   height: 100%;
-  padding-top: 5rem;
+  padding-top: 3rem;
   & .row { height: 100%; }
   & .content {
     height: 100%;
@@ -19,6 +19,11 @@
   }
   & .brand {
     margin-top: .5rem;
+  }
+  & .btn-new-tweet {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
   }
   & a {
     color: $font-light;
