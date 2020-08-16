@@ -13,6 +13,14 @@ export class Auth {
     return Axios.post("api/sign", data);
   }
   /**
+   * En: Returns the access token stored on the client
+   * Es: Retorna el token de acceso almacenado en el cliente
+   * @return String
+   */
+  static GetToken() {
+    return JSON.parse(localStorage.getItem("token")) || {};
+  }
+  /**
    * En: Set the session data on the client
    * Es: Establecer los datos de sesión en el cliente
    * @param {*} data 
@@ -20,14 +28,6 @@ export class Auth {
   static SetSession(token) {
     const { name, email, exp } = JwtDecode(token);
     localStorage.setItem("token", JSON.stringify({ name, email, exp }));
-  }
-  /**
-   * En: Returns the access token stored on the client
-   * Es: Retorna el token de acceso almacenado en el cliente
-   * @return String
-   */
-  static GetToken() {
-    return JSON.parse(localStorage.getItem("token")) || {};
   }
   /**
    * En: Validate session status
@@ -45,5 +45,12 @@ export class Auth {
       return true;
     }
     return false;
+  }
+  /**
+   * En: Remove session status
+   * Es: Remover estado de sesión
+   */
+  static LogOff() {
+    localStorage.removeItem("token")
   }
 }

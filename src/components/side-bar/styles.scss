@@ -1,0 +1,28 @@
+@import "../../assets/scss/main.scss";
+
+.layout-content {
+  padding-top: 5rem;
+}
+
+.side-bar {
+  & .logo {
+    width: 2rem;
+  }
+  & .brand {
+    margin-top: .5rem;
+  }
+  & a {
+    color: $font-light;
+    font-weight: 500;
+    &:hover { text-decoration: none; }
+    & svg {
+      margin-right: 1rem;
+    }
+  }
+  & .list-group {
+    & .list-group-item {
+      border: none;
+      background-color: transparent;
+    }
+  }
+}

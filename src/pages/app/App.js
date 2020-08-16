@@ -33,7 +33,9 @@ export default class App extends React.Component {
   render() {
     return (
       <SessionContext.Provider value={ this.state.session }>
-        { this.state.session.status ? <Router /> : <Sign setSession={ (state) => this.setSession(state) } /> }
+        { this.state.session.status 
+          ? <Router setSession={ (state) => this.setSession(state) } />
+          : <Sign   setSession={ (state) => this.setSession(state) } /> }
         <ToastContainer
           rtl={false}
           position="top-right"

@@ -18,8 +18,10 @@ export default class AppRouter extends React.Component {
     return (
       <Router>
         <Switch>
-          { map(Routes, ({ path, exact, component }, index) => (
-            <Route key={ index } path={ path } exact={ exact } component={ component } />
+          { map(Routes, (route, index) => (
+            <Route key={ index } path={ route.path } exact={ route.exact }>
+              <route.component setSession={ this.props.setSession } />
+            </Route>
           )) }
         </Switch>
       </Router>
