@@ -1,10 +1,11 @@
 import React from "react";
-import Sign from "../../pages/Sign/"
-import { Auth } from '../../api/auth'
-import { SessionContext } from '../../contexts/Session'
-import { ToastContainer } from "react-toastify"
+import Sign from "../Sign";
+import { Auth } from "../../api/auth";
+import Router from "../../routes/router";
+import { SessionContext } from "../../contexts/Session";
+import { ToastContainer } from "react-toastify";
 
-class App extends React.Component {
+export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -32,7 +33,7 @@ class App extends React.Component {
   render() {
     return (
       <SessionContext.Provider value={ this.state.session }>
-        { this.state.session.status ? <h5>Application ....</h5> : <Sign setSession={ (state) => this.setSession(state) } /> }
+        { this.state.session.status ? <Router /> : <Sign setSession={ (state) => this.setSession(state) } /> }
         <ToastContainer
           rtl={false}
           position="top-right"
@@ -47,5 +48,3 @@ class App extends React.Component {
     )
   }
 }
-
-export default App;
