@@ -5,9 +5,9 @@ import {
   faUsers,
   faSearch,
   faComment } from "@fortawesome/free-solid-svg-icons";
-import SignIn from "../../components/sign-in/";
-import SignUp from "../../components/sign-up/";
-import ModalBasic from "../../components/modals/basic/";
+import SignIn from "../../components/SignIn/";
+import SignUp from "../../components/SignUp";
+import ModalBasic from "../../components/Modals/Basic";
 import "./styles.scss";
 import LogoWhite from "../../assets/img/logos/white.png";
 

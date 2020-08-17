@@ -2,7 +2,7 @@ import React from "react";
 import Sign from "../Sign";
 import { Auth } from "../../api/auth";
 import Router from "../../routes/router";
-import { SessionContext } from "../../contexts/Session";
+import { SessionContext } from "../../contexts/session";
 import { ToastContainer } from "react-toastify";
 
 export default class App extends React.Component {
@@ -10,7 +10,11 @@ export default class App extends React.Component {
     super(props)
     this.state = {
       session: {
-        status: Auth.StatusSession()
+        status: Auth.StatusSession(),
+        profile: {
+          id: undefined,
+          name: ""
+        }
       }
     }
     this.setSession = this.setSession.bind(this)
@@ -33,9 +37,9 @@ export default class App extends React.Component {
   render() {
     return (
       <SessionContext.Provider value={ this.state.session }>
-        { this.state.session.status 
-          ? <Router setSession={ (state) => this.setSession(state) } />
-          : <Sign   setSession={ (state) => this.setSession(state) } /> }
+        { !this.state.session.status 
+          ? <Sign   setSession={ (state) => this.setSession(state) } />
+          : <Router setSession={ (state) => this.setSession(state) } /> }
         <ToastContainer
           rtl={false}
           position="top-right"
