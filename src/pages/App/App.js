@@ -5,19 +5,28 @@ import Router from "../../routes/router";
 import { SessionContext } from "../../contexts/session";
 import { ToastContainer } from "react-toastify";
 
+/**
+ * En: Main page of the application
+ * Es: Página principal de la aplicación
+ */
 export default class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      session: {
-        status: Auth.StatusSession(),
-        profile: {
-          id: undefined,
-          name: ""
-        }
-      }
+      session: this.getSession()
     }
     this.setSession = this.setSession.bind(this)
+  }
+  /**
+   * En: Get session status
+   * Es: Obtener el estado de la sesión
+   * @return {*}
+   */
+  getSession() {
+    return {
+      status:  Auth.statusSession(),
+      profile: Auth.payload()
+    }
   }
   /**
    * En: Sets session status
@@ -27,7 +36,9 @@ export default class App extends React.Component {
   setSession(state) {
     this.setState({
       session: { 
-        ...this.state.session, status: state }
+        status:  state,
+        profile: this.getSession().profile
+      }
     })
   }
   /**

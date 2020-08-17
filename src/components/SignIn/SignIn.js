@@ -63,11 +63,11 @@ export default class SignIn extends React.Component {
     }
     let state = false
     this.setState({ send: true })
-    Auth.Sign(this.state.form).then(response => {
+    Auth.sign(this.state.form).then(response => {
       const { status, data } = response
       if (status === 201) {
         state = true
-        Auth.SetSession(data.token)
+        Auth.setSession(data.token)
       }
     }).catch(error => {
       const { code, message, description } = error.response.data

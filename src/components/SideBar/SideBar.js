@@ -26,7 +26,7 @@ export default class SideBar extends Component {
    * Es: Remover estado de sesión
    */
   logout() {
-    Auth.LogOff()
+    Auth.logOff()
     this.props.setSession(false)
   }
   /**

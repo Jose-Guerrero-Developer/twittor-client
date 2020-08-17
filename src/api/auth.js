@@ -8,7 +8,7 @@ export class Auth {
    * @param {*} profile
    * @return Promise
    */
-  static Sign(profile) {
+  static sign(profile) {
     let data = profile;
     return Axios.post("api/sign", data);
   }
@@ -17,7 +17,7 @@ export class Auth {
    * Es: Retorna el token de acceso almacenado en el cliente
    * @return String
    */
-  static GetToken() {
+  static getToken() {
     return JSON.parse(localStorage.getItem("token")) || {};
   }
   /**
@@ -25,17 +25,26 @@ export class Auth {
    * Es: Establecer los datos de sesión en el cliente
    * @param {*} data 
    */
-  static SetSession(token) {
-    const { name, email, exp } = JwtDecode(token);
-    localStorage.setItem("token", JSON.stringify({ name, email, exp }));
+  static setSession(token) {
+    const { _id: id, name, email, exp } = JwtDecode(token);
+    localStorage.setItem("token", JSON.stringify({ id, name, email, exp }));
+  }
+  /**
+   * En: Upload session data from local storage
+   * Es: Cargar los datos de la sesión desde el local storage
+   * @return {*}
+   */
+  static payload() {
+    const  { id, name, email } = JSON.parse(localStorage.getItem("token")) || {};
+    return { id, name, email };
   }
   /**
    * En: Validate session status
    * Es: Validar estado de la sesión
    * @return Boolean
    */
-  static StatusSession() {
-    const token = this.GetToken();
+  static statusSession() {
+    const token = this.getToken();
     if (token.length <= 0) {
       return false;
     }
@@ -50,7 +59,7 @@ export class Auth {
    * En: Remove session status
    * Es: Remover estado de sesión
    */
-  static LogOff() {
+  static logOff() {
     localStorage.removeItem("token")
   }
 }
