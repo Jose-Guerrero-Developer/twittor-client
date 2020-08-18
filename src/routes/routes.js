@@ -1,5 +1,6 @@
 import Home from "../pages/Home/"
 import Error404 from "../pages/Errors/Error404"
+import Profile from "../pages/Profile/Profile"
 
 /**
  * En: Application Route Store
@@ -9,6 +10,10 @@ export const Routes = [
   {
     path: "/",
     exact: true, component: Home
+  },
+  {
+    path: "/profile/:id",
+    exact: true, component: Profile
   },
   {
     path: "*",

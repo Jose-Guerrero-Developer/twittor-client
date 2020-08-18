@@ -1,23 +1,23 @@
 import JwtDecode from "jwt-decode"
 import { Axios } from "../utils/axios/"
 
-export class Auth {
+export class Auth extends Axios {
   /**
    * En: Expose the service to log in
    * Es: Expone el servicio para iniciar sesión
    * @param {*} profile
    * @return Promise
    */
-  static sign(profile) {
+  sign(profile) {
     let data = profile;
-    return Axios.post("api/sign", data);
+    return this.axios().post("api/sign", data);
   }
   /**
    * En: Returns the access token stored on the client
    * Es: Retorna el token de acceso almacenado en el cliente
    * @return String
    */
-  static getToken() {
+  getToken() {
     return JSON.parse(localStorage.getItem("token")) || {};
   }
   /**
@@ -25,16 +25,16 @@ export class Auth {
    * Es: Establecer los datos de sesión en el cliente
    * @param {*} data 
    */
-  static setSession(token) {
+  setSession(token) {
     const { _id: id, name, email, exp } = JwtDecode(token);
-    localStorage.setItem("token", JSON.stringify({ id, name, email, exp }));
+    localStorage.setItem("token", JSON.stringify({ id, name, email, exp, token }));
   }
   /**
    * En: Upload session data from local storage
    * Es: Cargar los datos de la sesión desde el local storage
    * @return {*}
    */
-  static payload() {
+  payload() {
     const  { id, name, email } = JSON.parse(localStorage.getItem("token")) || {};
     return { id, name, email };
   }
@@ -43,7 +43,7 @@ export class Auth {
    * Es: Validar estado de la sesión
    * @return Boolean
    */
-  static statusSession() {
+  statusSession() {
     const token = this.getToken();
     if (token.length <= 0) {
       return false;
@@ -59,7 +59,7 @@ export class Auth {
    * En: Remove session status
    * Es: Remover estado de sesión
    */
-  static logOff() {
+  logOff() {
     localStorage.removeItem("token")
   }
 }
