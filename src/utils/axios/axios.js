@@ -1,4 +1,5 @@
 import axios from "axios";
+import { HOST } from "../../utils/constants";
 
 /**
  * En: Instance of Axios
@@ -12,7 +13,7 @@ export class Axios {
   instance = undefined
   constructor() {
     this.instance = axios.create({
-      timeout: 1000, baseURL: "http://localhost:8080",
+      timeout: 1000, baseURL: HOST,
       headers: {
         "Content-Type": "application/json"
       }
@@ -24,6 +25,7 @@ export class Axios {
    * @return {*}
    */
   axios() {
+    this.instance.defaults.headers.common["Authorization"] = `Bearer ${ JSON.parse(localStorage.getItem("token"))?.token }`
     return this.instance;
   }
 }

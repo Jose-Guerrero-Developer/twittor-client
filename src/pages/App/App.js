@@ -1,8 +1,8 @@
 import React from "react";
 import Sign from "../Sign";
-import { Auth } from "../../api/auth";
+import { Auth } from "../../api/";
 import Router from "../../routes/router";
-import { SessionContext } from "../../contexts/session";
+import { ContextSession } from "../../contexts/contextSession";
 import { ToastContainer } from "react-toastify";
 
 /**
@@ -47,7 +47,7 @@ export default class App extends React.Component {
    */
   render() {
     return (
-      <SessionContext.Provider value={ this.state.session }>
+      <ContextSession.Provider value={ this.state.session }>
         { !this.state.session.status 
           ? <Sign   setSession={ (state) => this.setSession(state) } />
           : <Router setSession={ (state) => this.setSession(state) } /> }
@@ -61,7 +61,7 @@ export default class App extends React.Component {
           pauseOnHover
           hideProgressBar={false}
           pauseOnFocusLoss />
-      </SessionContext.Provider>
+      </ContextSession.Provider>
     )
   }
 }

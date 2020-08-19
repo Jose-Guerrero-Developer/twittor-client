@@ -1,4 +1,3 @@
-import { Auth  } from "../api/"
 import { Axios } from "../utils/axios/";
 
 export class Profile extends Axios {
@@ -9,12 +8,20 @@ export class Profile extends Axios {
    * @return Promise
    */
   getID(id) {
-    this.axios().defaults.headers.common["Authorization"] = `Bearer ${ Auth.getToken()?.token }`
     return this.axios().get("api/profiles", {
       params: {
         id
       }
     });
+  }
+  /**
+   * En:
+   * Es:
+   * @param {*} id
+   * @return Promise 
+   */
+  getBanner(id) {
+    return this.axios().get(`api/profiles/${ id }/banner`)
   }
   /**
    * En: Service to store a new user account
